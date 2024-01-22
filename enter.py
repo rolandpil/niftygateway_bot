@@ -6,6 +6,8 @@ from selenium import webdriver
 import csv
 from selenium.webdriver.common.keys import Keys
 
+# Used for FCFS distribution
+
 # url for niftygateway drawing
 url = 'https://niftygateway.com/enterdrawing/?contractAddress=0x374e4a05e665f25b6c996ec2eeae05c792359821&niftyType=12'
 
@@ -103,27 +105,27 @@ def main():
         driver.get('https://niftygateway.com/validate-profile')
         time.sleep(1)
         try:
-         element = driver.find_element_by_xpath(
-             '/html/body/div/div/div[2]/div[2]/div[1]/form/div[1]/div/input')
-         element.send_keys(user[0])
-         element = driver.find_element_by_xpath(
-             '/html/body/div/div/div[2]/div[2]/div[1]/form/div[2]/div/input')
-         element.send_keys(user[1])
-         time.sleep(1)
-         element = driver.find_element_by_xpath(
-             '/html/body/div/div/div[2]/div[2]/div[1]/form/button/span[1]')
-         element.click()
-         time.sleep(1)
-         driver.get(url)
- 
-         element = driver.find_element_by_xpath(
-             '/html/body/div/div/div[2]/div/div[4]/div/div')
-         time.sleep(1)
-         element.click()
-         time.sleep(1)
-         driver.close()
+            element = driver.find_element_by_xpath(
+                '/html/body/div/div/div[2]/div[2]/div[1]/form/div[1]/div/input')
+            element.send_keys(user[0])
+            element = driver.find_element_by_xpath(
+                '/html/body/div/div/div[2]/div[2]/div[1]/form/div[2]/div/input')
+            element.send_keys(user[1])
+            time.sleep(1)
+            element = driver.find_element_by_xpath(
+                '/html/body/div/div/div[2]/div[2]/div[1]/form/button/span[1]')
+            element.click()
+            time.sleep(1)
+            driver.get(url)
+
+            element = driver.find_element_by_xpath(
+                '/html/body/div/div/div[2]/div/div[4]/div/div')
+            time.sleep(1)
+            element.click()
+            time.sleep(1)
+            driver.close()
         except:
-         driver.close()
+            driver.close()
 
 
 main()
